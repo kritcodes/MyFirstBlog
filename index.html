@@ -10,26 +10,35 @@
 		<link rel="stylesheet" href="article.css">
 		<link rel="stylesheet" href="articlefig.css">
 		<link rel="stylesheet" href="articletext.css">
-		<link rel="stylesheet" href="articleshare.css">
+        <link rel="stylesheet" href="articleshare.css">
+        <link rel="stylesheet" href="stylehl.css">
 	</head>
     <body>
         <figure class="size-4">
-            <img src="myblogcover.png">
+            <img src="blogcover.jpg">
         </figure>
         <figcaption><p>KritWrites.</p></figcaption>
+        <nav>
+            <ul class="menu">
+              
+              <li><a href="https://twitter.com/kirithikas">Twitter</a></li>
+              <li><a href="https://www.linkedin.com/in/kirithika-s-a5b630187/">LinkedIn</a></li>
+              <li><a href="https://medium.com/@kirithikasenthil18">Medium</a></li>
+              <li><a href="https://github.com/kritcodes">GitHub</a></li>
+            </ul>
+          </nav>
 		<article id="the-cosmos-1">
 			<h1>Hola Folks</h1>
 			<h2>Here's a short note about myself</h2>
 
 			<time datetime="03-09-2014">July 24, 2020</time>
 			<p>
-				Hey, I am <em>Krits</em>, a human who is amazed by science, engineering, technology and more things that I see.
-				I am learning to code and loving it at the same time.
+				Hey, I am <em>Krits</em>, a human who is amazed by science, engineering, technology and more things around me.
+				I learning to code and loving it at the same time.
                 In a never ending journey of learning I have committed myself to learn, teach and pen down things that I learn in order to share my knowledge.
                 Join my journey let's explore galaxies, worlds, technology and discover awe things! 
-                Connect with me via <a href="https://twitter.com/kirithikas">Twitter</a> or check my code on <a href="https://github.com/kritcodes">Git</a>
+                Connect with me via <a href="https://twitter.com/kirithikas">Twitter</a> or check my code on <a href="https://github.com/kritcodes">GitHub</a>
                 or if you'd like to check my blogs, you can find them on my <a href="https://medium.com/@kirithikasenthil18">Medium page.</a>
-	        Ask a lot of "why", "how","what" and find solutions. When you do that you would get a different kinda "wow" feel :')
                 Happy Learning!!!
 			</p>
 			
@@ -79,6 +88,31 @@
 				<a href=""><img src="images/rebels.svg"></a>
 				<a href=""><img src="images/empire.svg"></a>
 			</div>
-		</article>-->
+        </article>-->
+        <script>
+            const triggers = document.querySelectorAll('a');
+            const highlight = document.createElement('span');
+            highlight.classList.add('highlight');
+            document.body.appendChild(highlight);
+          
+            function highlightLink() {
+              const linkCoords = this.getBoundingClientRect();
+              console.log(linkCoords);
+              const coords = {
+                width: linkCoords.width,
+                height: linkCoords.height,
+                top: linkCoords.top + window.scrollY,
+                left: linkCoords.left + window.scrollX
+              };
+          
+              highlight.style.width = `${coords.width}px`;
+              highlight.style.height = `${coords.height}px`;
+              highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+          
+            }
+          
+            triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
+          
+          </script>
     </body>
 </html>
